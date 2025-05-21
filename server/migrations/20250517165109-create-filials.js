@@ -1,19 +1,23 @@
-// migrations/20231001120002-create-users.js
+// migrations/20231001120001-create-filials.js
 'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Users', {
-      id_user: {
+    await queryInterface.createTable('Filials', {
+      filial_ID: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      login: {
+      filial_Name: {
         type: Sequelize.STRING(45),
         allowNull: false,
       },
-      password: {
+      address: {
+        type: Sequelize.STRING(45),
+        allowNull: false,
+      },
+      city: {
         type: Sequelize.STRING(45),
         allowNull: false,
       },
@@ -21,6 +25,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Filials');
   },
 };

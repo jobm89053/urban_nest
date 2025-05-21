@@ -1,14 +1,27 @@
 // models/Clients.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const Users = require('./Users');
 
 const Clients = sequelize.define('Clients', {
   cl_name: {
     type: DataTypes.STRING(45),
     allowNull: false,
   },
+  cl_fname: {
+    type: DataTypes.STRING(45),
+    allowNull: false,
+  },
   phone: {
     type: DataTypes.STRING(12),
+    allowNull: false,
+  },
+  city: {
+    type: DataTypes.STRING(45),
+    allowNull: false,
+  },
+  state: {
+    type: DataTypes.STRING(2),
     allowNull: false,
   },
   email: {
@@ -23,26 +36,15 @@ const Clients = sequelize.define('Clients', {
     type: DataTypes.STRING(45),
     allowNull: false,
   },
+  users_id_user: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
 }, {
   tableName: 'Clients',
 });
 
+// Связи
+Clients.belongsTo(Users, { foreignKey: 'users_id_user' });
+
 module.exports = Clients;
-
-// models/Clients.js
-const Contract = require('./Contract');
-
-Clients.hasMany(Contract, { foreignKey: 'clients_ID' });
-Contract.belongsTo(Clients, { foreignKey: 'clients_ID' });
-
-// models/Realtors.js
-const Contract = require('./Contract');
-
-Realtors.hasMany(Contract, { foreignKey: 'realtorID' });
-Contract.belongsTo(Realtors, { foreignKey: 'realtorID' });
-
-// models/RealEstate.js
-const Contract = require('./Contract');
-
-RealEstate.hasMany(Contract, { foreignKey: 'real_estate_ID' });
-Contract.belongsTo(RealEstate, { foreignKey: 'real_estate_ID' });
