@@ -1,41 +1,35 @@
+# Файлы операционной системы
+.DS_Store
+Thumbs.db
+
+# Локальные конфигурации
+.env
+.env.local
+.env.*.local
+
 # Node.js
 node_modules/
-npm-debug.log
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Sequelize CLI
-config/config.json # Игнорируем файл конфигурации базы данных
-.env               # Игнорируем файл переменных окружения
+# Фронтенд (React, Vue, Angular и т.д.)
+/frontend/build/
+/frontend/dist/
+/frontend/.cache/
 
-# Logs and databases
-*.log
-*.sqlite
+# Бэкенд (Node.js, Express и т.д.)
+/backend/dist/
+/backend/logs/
+/backend/uploads/
 
-# IDEs and editors
+# IDE и редакторы
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
 
-# OS-specific files
-.DS_Store
-Thumbs.db
-
-# Build and temporary files
-dist/
-build/
-coverage/
+# Логи и временные файлы
+*.log
 *.tmp
 *.swp
-*.bak
-
-# React (если есть клиентская часть)
-client/build/
-client/node_modules/
-
-# Other
-.env.local
-.env.development
-.env.production
